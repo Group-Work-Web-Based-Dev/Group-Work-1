@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group work </title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    
+<div id="lessons">
+    <img v-bind:src="image" width="100" height="100">
+    <p v-text="subject"></p>
+    <p v-text="location"></p>
+    <p v-text="price"></p>
+    <p id="spaces">Spaces: {{spaces}}</p>
+    <button id="addToCart" v-on:click="add">Add to Cart</button>
+</div>
+<script>
+    let app = new Vue({
+        el: "#lessons",
+        data:{
+            image:"maths.jpg",
+            subject: "Subject:Math",
+            location: "Location: London",
+            price: "Price: £100",
+            spaces: 5,
+        },
+        methods: {
+
+            add:function (){
+                if (app.spaces > 0){
+                    app.spaces--;
+                    document.getElementById("spaces").innerText = "Spaces. " +app.spaces;
+
+                }
+                if (app.spaces == 0){
+                    document.getElementById("addToCart").innerText = " ";
+                }
+            }
+        }
+    })
+</script>
+ 
+</body>
+</html>
