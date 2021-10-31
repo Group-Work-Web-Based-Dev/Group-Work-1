@@ -15,9 +15,7 @@
     <p v-text="location"></p>
     <p v-text="price"></p>
     <p id="spaces">Spaces: {{spaces}}</p>
-    <button id="addToCart" v-on:click="add">Add to Cart</button>
-</div>
-<script>
+    <button @clickid="addToCart" v-on:click="add">Add to Cart</button><script>
     let app = new Vue({
         el: "#lessons",
         data:{
