@@ -39,7 +39,8 @@
                 if (app.spaces > 0){
                     app.spaces--;
                     document.getElementById("spaces").innerText = "Spaces: " +app.spaces;
-                } else if (app.spaces <= 0) {
+                } 
+                if (app.spaces == 0) {
                     const cartBtn = document.querySelector('button')
                     return cartBtn.disabled = true
                 }
