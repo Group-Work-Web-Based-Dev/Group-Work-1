@@ -15,7 +15,9 @@
     <p v-text="location"></p>
     <p v-text="price"></p>
     <p id="spaces">Spaces: {{spaces}}</p>
-    <button @clickid="addToCart" v-on:click="add">Add to Cart</button><script>
+    <button id="btn-cart"  @clickid="addToCart" v-on:click="add">Add to Cart</button>
+    
+    <script>
     let app = new Vue({
         el: "#lessons",
         data:{
@@ -24,20 +26,19 @@
             location: "Location: London",
             price: "Price: £100",
             spaces: 5,
+            isDisabled: false
         },
         methods: {
-
-            add:function (){
+            add: () => {
                 if (app.spaces > 0){
                     app.spaces--;
-                    document.getElementById("spaces").innerText = "Spaces. " +app.spaces;
-
+                    document.getElementById("spaces").innerText = "Spaces: " +app.spaces;
+                } else if (app.spaces <= 0) {
+                    const cartBtn = document.querySelector('button')
+                    return cartBtn.disabled = true
                 }
-                if (app.spaces == 0){
-                    document.getElementById("addToCart").innerText = " ";
-                }
-            }
-        }
+            },
+        },
     })
 </script>
  
