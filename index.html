@@ -23,8 +23,7 @@
                 <p class="cart-text" v-text="location"></p>
                 <p class="cart-text" v-text="price"></p>
                 <p class="cart-text" id="spaces">Spaces: {{spaces}}</p>
-                <button id="btn-cart" :disabled="isDisabled" @clickid="addToCart" v-on:click="add"
-                    class="btn btn-primary">Add
+                <button id="btn-cart" :disabled="isDisabled" v-on:click="add" class="btn btn-primary">Add
                     to Cart</button>
             </div>
         </div>
@@ -44,11 +43,9 @@
                     add: () => {
                         if (app.spaces > 0) {
                             app.spaces--;
-                            document.getElementById("spaces").innerText = "Spaces: " + app.spaces;
                         }
                         if (app.spaces == 0) {
-                            const cartBtn = document.querySelector('button')
-                            return cartBtn.disabled = !app.isDisabled
+                            app.isDisabled = true
                         }
                     },
                 },
